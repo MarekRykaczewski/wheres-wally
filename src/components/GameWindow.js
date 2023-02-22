@@ -20,9 +20,11 @@ export const GameWindow = (props) => {
         setContextMenu({ show: true, x: pageX, y: pageY })
     }
 
+    const contextMenuClose = () => setContextMenu(initialContextMenu)
+
     return (
         <div>
-            <img onContextMenu={handleContextMenu} id="game-window" alt="game" src={level1} />
+            <img onClick={contextMenuClose} onContextMenu={handleContextMenu} id="game-window" alt="game" src={level1} />
             {contextMenu.show && 
             <ContextMenu
             x={contextMenu.x}
