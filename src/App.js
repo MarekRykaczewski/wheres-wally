@@ -1,11 +1,14 @@
 import './App.css';
-import { Auth } from './components/Auth';
+import { GameWindow } from './components/GameWindow';
 import { Nav } from './components/Nav';
 
 function App() {
   return (
     <div className="App">
       <Nav />
+      <div className='main'>
+        <GameWindow />
+      </div>
     </div>
   );
 }
