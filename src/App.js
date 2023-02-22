@@ -6,7 +6,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
-  const levels = [{id: 1, url: "level_1.jpg"}, {id: 2, url: "level_2.jpg"}]
+  const levels = [
+    {id: 1, url: "level_1.jpg"}, 
+    {id: 2, url: "level_2.jpg"},
+    {id: 3, url: "level_3.jpg"}
+  ]
 
   return (
     <Router>
