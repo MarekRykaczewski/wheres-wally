@@ -59,3 +59,23 @@ body {
   overflow: auto;
   max-width: 100%;
 }
+
+#context-menu {
+  position: absolute;
+  z-index: 99999;
+  width: 150px;
+  background: #eaeaea;
+  border-radius: 5px;
+}
+
+.context-menu--item {
+  padding: 8px 10px;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+.context-menu--item:hover {
+  background: #c9c9c9;
+}
