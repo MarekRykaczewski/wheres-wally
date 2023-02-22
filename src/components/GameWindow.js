@@ -1,10 +1,14 @@
 import level1 from "../img/level_1.jpg"
+import level2 from "../img/level_2.jpg"
 import { ContextMenu } from "./ContextMenu"
 import { useState } from "react"
+import { useParams } from "react-router-dom";
 
 
 export const GameWindow = (props) => {
 
+    const { id } = useParams()
+    
     const initialContextMenu = {
         show: false,
         x: 0,
@@ -24,7 +28,13 @@ export const GameWindow = (props) => {
 
     return (
         <div>
-            <img onClick={contextMenuClose} onContextMenu={handleContextMenu} id="game-window" alt="game" src={level1} />
+            <img 
+            onClick={contextMenuClose} 
+            onContextMenu={handleContextMenu} 
+            id="game-window" 
+            alt="game" 
+            src={level1} 
+            />
             {contextMenu.show && 
             <ContextMenu
             x={contextMenu.x}

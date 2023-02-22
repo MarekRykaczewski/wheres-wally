@@ -80,3 +80,19 @@ body {
 .context-menu--item:hover {
   background: #c9c9c9;
 }
+
+.home {
+  
+}
+
+.home--level-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home--level-preview--image {
+  width: 200px;
+  border-radius: 10px;
+}
