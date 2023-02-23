@@ -22,7 +22,7 @@ function App() {
   }, [])
 
   let clientLevelsData = [
-    {id: 1, url: "level_1.jpg", characters: { name: "wally", found: false }}, 
+    {id: 1, url: "level_1.jpg", charactersFound: { wally: false}}, 
     {id: 2, url: "level_2.jpg"},
     {id: 3, url: "level_3.jpg"}
   ]
@@ -30,7 +30,7 @@ function App() {
   console.log(serverLevelsData)
 
 
-  const handleCharacterClick = (character, clientX, clientY) => {
+  const handleCharacterClick = (character, clientX, clientY, id) => {
     const clientCoordinates = {x: clientX, y: clientY}
     const { x, y } = serverLevelsData[0].characters[character].coordinates
     const serverCoordinates = {x, y}
@@ -39,7 +39,9 @@ function App() {
     console.log("server loc")
     console.log(serverCoordinates)
     if (isNear(clientCoordinates.x, serverCoordinates.x) && isNear(clientCoordinates.y, serverCoordinates.y)) {
-        console.log("hit")
+        const itemToUpdate = clientLevelsData.findIndex(x => x.id == id)
+        clientLevelsData[itemToUpdate].charactersFound[character] = true
+        console.log(clientLevelsData)
     } else {
         console.log("miss")
     }

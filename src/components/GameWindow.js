@@ -39,6 +39,7 @@ export const GameWindow = (props) => {
             y={contextMenu.y}
             serverLevelsData={props.serverLevelsData}
             handleCharacterClick={props.handleCharacterClick}
+            currentLevel={id}
             />}
         </div>
 
