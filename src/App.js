@@ -8,18 +8,20 @@ import { db } from './config/firebase';
 
 function App() {
 
+  const getServerLevelsData = async () => {
+    const levelsServerRef = collection(db, "levels")
+    const serverLevelsData = await getDocs(levelsServerRef)
+    const filteredData = serverLevelsData.docs.map((doc) => ({...doc.data(), id: doc.id}))
+    return(filteredData)
+  }
+
   let clientLevelsData = [
     {id: 1, url: "level_1.jpg", characters: { name: "wally", found: false }}, 
     {id: 2, url: "level_2.jpg"},
     {id: 3, url: "level_3.jpg"}
   ]
 
-  const getServerLevelsData = async () => {
-    const levelsServerRef = collection(db, "levels")
-    const serverLevelsData = await getDocs(levelsServerRef)
-    const filteredData = serverLevelsData.docs.map((doc) => ({...doc.data(), id: doc.id}))
-    console.log(filteredData)
-  }
+  const serverLevelsData = getServerLevelsData()
 
   return (
     <Router>
@@ -33,7 +35,7 @@ function App() {
            />
           <Route 
           path="/level/:id" 
-          element={<GameWindow getServerLevelsData={getServerLevelsData}/>} 
+          element={<GameWindow/>} 
           />
         </Routes>
       </div>

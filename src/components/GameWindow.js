@@ -38,7 +38,6 @@ export const GameWindow = (props) => {
             <ContextMenu
             x={contextMenu.x}
             y={contextMenu.y}
-            getServerLevelsData={props.getServerLevelsData}
             />}
         </div>
 
