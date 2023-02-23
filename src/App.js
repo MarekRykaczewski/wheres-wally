@@ -41,7 +41,7 @@ function App() {
            />
           <Route 
           path="/level/:id" 
-          element={<GameWindow/>} 
+          element={<GameWindow serverLevelsData={serverLevelsData}/>} 
           />
         </Routes>
       </div>

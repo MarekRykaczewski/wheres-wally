@@ -20,7 +20,6 @@ export const GameWindow = (props) => {
         console.log("clicked")
         const { pageX, pageY } = event
         setContextMenu({ show: true, x: pageX, y: pageY })
-        console.log(contextMenu.x, contextMenu.y)
     }
 
     const contextMenuClose = () => setContextMenu(initialContextMenu)
@@ -38,6 +37,7 @@ export const GameWindow = (props) => {
             <ContextMenu
             x={contextMenu.x}
             y={contextMenu.y}
+            serverLevelsData={props.serverLevelsData}
             />}
         </div>
 
