@@ -23,13 +23,6 @@ export const ContextMenu = (props) => {
         }
     }
 
-
-
-    // a = 10, b = 1
-    // 10 > 6? True
-    // a = 1, b = 10
-    // 1 > 15? False
-
     return (
         <div style={{top: `${props.y}px`, left: `${props.x}px`}} id="context-menu">
             <div onClick={() => handleCharacterClick("wally")} className="context-menu--item">Wally</div>
