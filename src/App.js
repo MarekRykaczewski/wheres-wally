@@ -29,6 +29,30 @@ function App() {
 
   console.log(serverLevelsData)
 
+
+  const handleCharacterClick = (character, clientX, clientY) => {
+    const clientCoordinates = {x: clientX, y: clientY}
+    const { x, y } = serverLevelsData[0].characters[character].coordinates
+    const serverCoordinates = {x, y}
+    console.log("client click")
+    console.log(clientCoordinates)
+    console.log("server loc")
+    console.log(serverCoordinates)
+    if (isNear(clientCoordinates.x, serverCoordinates.x) && isNear(clientCoordinates.y, serverCoordinates.y)) {
+        console.log("hit")
+    } else {
+        console.log("miss")
+    }
+}
+
+const isNear = (a, b) => {
+    if (a < b+5) {
+        return true
+    } else {
+        return false
+    }
+}
+
   return (
     <Router>
     <div className="App">
@@ -41,7 +65,7 @@ function App() {
            />
           <Route 
           path="/level/:id" 
-          element={<GameWindow serverLevelsData={serverLevelsData}/>} 
+          element={<GameWindow serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
           />
         </Routes>
       </div>

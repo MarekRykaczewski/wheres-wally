@@ -38,6 +38,7 @@ export const GameWindow = (props) => {
             x={contextMenu.x}
             y={contextMenu.y}
             serverLevelsData={props.serverLevelsData}
+            handleCharacterClick={props.handleCharacterClick}
             />}
         </div>
 
