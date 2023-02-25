@@ -24,6 +24,8 @@ export const GameWindow = (props) => {
 
     const contextMenuClose = () => setContextMenu(initialContextMenu)
 
+    const currentLevelData = props.clientLevelsData.find(x => x.id == id)
+
     return (
         <div>
             <img 
@@ -37,6 +39,7 @@ export const GameWindow = (props) => {
             <ContextMenu
             x={contextMenu.x}
             y={contextMenu.y}
+            clientCurrentLevelData={currentLevelData}
             serverLevelsData={props.serverLevelsData}
             handleCharacterClick={props.handleCharacterClick}
             currentLevel={id}

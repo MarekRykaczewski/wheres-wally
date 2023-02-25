@@ -22,9 +22,9 @@ function App() {
   }, [])
 
   let clientLevelsData = [
-    {id: 1, url: "level_1.jpg", charactersFound: { wally: false}}, 
-    {id: 2, url: "level_2.jpg"},
-    {id: 3, url: "level_3.jpg"}
+    {id: 1, url: "level_1.jpg", charactersFound: { Wally: false, Wilbur: false }}, 
+    {id: 2, url: "level_2.jpg", charactersFound: { Wally: false }},
+    {id: 3, url: "level_3.jpg", charactersFound: { Wally: false }}
   ]
 
   console.log(serverLevelsData)
@@ -67,7 +67,7 @@ const isNear = (a, b) => {
            />
           <Route 
           path="/level/:id" 
-          element={<GameWindow serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
+          element={<GameWindow clientLevelsData={clientLevelsData} serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
           />
         </Routes>
       </div>
