@@ -26,10 +26,25 @@ export const GameWindow = (props) => {
     const contextMenuClose = () => setContextMenu(initialContextMenu)
 
     const currentLevelData = props.clientLevelsData.find(x => x.id == id)
+    
+    const characterArr = Object.keys(currentLevelData.characters)
+    let counter = 0
+    let stopTimer = false
+
+    for (let i = 0; i < characterArr.length; i++) {
+        console.log(currentLevelData.characters[characterArr[i]].found)
+        if (currentLevelData.characters[characterArr[i]].found) {
+            counter++
+        }
+        if (counter === characterArr.length) {
+            stopTimer = true
+            console.log("you won")
+        }
+    }
 
     return (
         <div id="game-window-main">
-            <Timer />
+            <Timer stopTimer={stopTimer}/>
             <CharactersLeft clientCurrentLevelData={currentLevelData}/>
             <img 
             onContextMenu={contextMenuClose} 

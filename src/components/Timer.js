@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export const Timer = (props) => {
 
     const [time, setTime] = useState(0);
-    const [running, setRunning] = useState(false);
+    const [running, setRunning] = useState(true);
 
     useEffect(() => {
       let interval;
@@ -16,6 +16,12 @@ export const Timer = (props) => {
       }
       return () => clearInterval(interval);
     }, [running]);
+
+    useEffect(() => {
+        if (props.stopTimer === true) {
+            setRunning(false)
+        }
+    }, [props.stopTimer])
 
     return (
     <div className="timer">
