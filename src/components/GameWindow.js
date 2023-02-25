@@ -1,6 +1,7 @@
 import { ContextMenu } from "./ContextMenu"
 import { useState } from "react"
 import { useParams } from "react-router-dom";
+import { CharactersLeft } from "./CharactersLeft"
 
 
 export const GameWindow = (props) => {
@@ -28,6 +29,7 @@ export const GameWindow = (props) => {
 
     return (
         <div>
+            <CharactersLeft clientCurrentLevelData={currentLevelData}/>
             <img 
             onContextMenu={contextMenuClose} 
             onClick={handleContextMenu} 

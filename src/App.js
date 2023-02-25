@@ -21,10 +21,16 @@ function App() {
     getServerLevelsData()
   }, [])
 
+  // let clientLevelsData = [
+  //   {id: 1, url: "level_1.jpg", charactersFound: { Wally: false, Wilbur: false }}, 
+  //   {id: 2, url: "level_2.jpg", charactersFound: { Wally: false }},
+  //   {id: 3, url: "level_3.jpg", charactersFound: { Wally: false }}
+  // ]
+
   let clientLevelsData = [
-    {id: 1, url: "level_1.jpg", charactersFound: { Wally: false, Wilbur: false }}, 
-    {id: 2, url: "level_2.jpg", charactersFound: { Wally: false }},
-    {id: 3, url: "level_3.jpg", charactersFound: { Wally: false }}
+    {id: 1, url: "level_1.jpg", characters: { Wally: {found: false, url: `../wally.png` }, Odlaw: {found: false, url: `../odlaw.png`}} }, 
+    {id: 2, url: "level_2.jpg", characters: { Wally: {found: false, url: `../wally.png` }} },
+    {id: 3, url: "level_3.jpg", characters: { Wally: {found: false, url: `../wally.png` }} }
   ]
 
   console.log(serverLevelsData)

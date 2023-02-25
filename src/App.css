@@ -110,3 +110,18 @@ body {
   object-fit: cover;
   border-radius: 10px;
 }
+
+.characters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.character--icon {
+  transition: 0.3s;
+  object-fit: contain;
+  width: 8rem;
+  height: 8rem;
+}
