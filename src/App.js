@@ -21,17 +21,11 @@ function App() {
     getServerLevelsData()
   }, [])
 
-  // let clientLevelsData = [
-  //   {id: 1, url: "level_1.jpg", charactersFound: { Wally: false, Wilbur: false }}, 
-  //   {id: 2, url: "level_2.jpg", charactersFound: { Wally: false }},
-  //   {id: 3, url: "level_3.jpg", charactersFound: { Wally: false }}
-  // ]
-
-  let clientLevelsData = [
+  const [clientLevelsData, setClientLevelsData] = useState([
     {id: 1, url: "level_1.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}} }, 
     {id: 2, url: "level_2.jpg", characters: { wally: {found: false, url: `../wally.png` }} },
     {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
-  ]
+  ])
 
   console.log(serverLevelsData)
 
@@ -46,7 +40,7 @@ function App() {
     console.log(serverCoordinates)
     if (isNear(clientCoordinates.x, serverCoordinates.x) && isNear(clientCoordinates.y, serverCoordinates.y)) {
         const itemToUpdate = clientLevelsData.findIndex(x => x.id == id)
-        clientLevelsData[itemToUpdate].characters[character].found = true
+        setClientLevelsData(prevData => [...prevData, clientLevelsData[itemToUpdate].characters[character].found = true]) 
         console.log(clientLevelsData)
     } else {
         console.log("miss")
