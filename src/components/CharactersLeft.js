@@ -7,8 +7,6 @@ export const CharactersLeft = (props) => {
         </div>
     ))
 
-    console.log(props.clientCurrentLevelData)
-
     const characterArr = Object.keys(props.clientCurrentLevelData.characters)
     let counter = 0
 
