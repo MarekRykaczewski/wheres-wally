@@ -2,7 +2,7 @@ import { ContextMenu } from "./ContextMenu"
 import { useState } from "react"
 import { useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
-
+import { Timer } from "./Timer";
 
 export const GameWindow = (props) => {
 
@@ -28,7 +28,8 @@ export const GameWindow = (props) => {
     const currentLevelData = props.clientLevelsData.find(x => x.id == id)
 
     return (
-        <div>
+        <div id="game-window-main">
+            <Timer />
             <CharactersLeft clientCurrentLevelData={currentLevelData}/>
             <img 
             onContextMenu={contextMenuClose} 
