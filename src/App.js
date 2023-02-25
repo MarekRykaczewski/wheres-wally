@@ -28,9 +28,9 @@ function App() {
   // ]
 
   let clientLevelsData = [
-    {id: 1, url: "level_1.jpg", characters: { Wally: {found: false, url: `../wally.png` }, Odlaw: {found: false, url: `../odlaw.png`}} }, 
-    {id: 2, url: "level_2.jpg", characters: { Wally: {found: false, url: `../wally.png` }} },
-    {id: 3, url: "level_3.jpg", characters: { Wally: {found: false, url: `../wally.png` }} }
+    {id: 1, url: "level_1.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}} }, 
+    {id: 2, url: "level_2.jpg", characters: { wally: {found: false, url: `../wally.png` }} },
+    {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
   ]
 
   console.log(serverLevelsData)
@@ -46,7 +46,7 @@ function App() {
     console.log(serverCoordinates)
     if (isNear(clientCoordinates.x, serverCoordinates.x) && isNear(clientCoordinates.y, serverCoordinates.y)) {
         const itemToUpdate = clientLevelsData.findIndex(x => x.id == id)
-        clientLevelsData[itemToUpdate].charactersFound[character] = true
+        clientLevelsData[itemToUpdate].characters[character].found = true
         console.log(clientLevelsData)
     } else {
         console.log("miss")

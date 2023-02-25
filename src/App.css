@@ -117,9 +117,21 @@ body {
   gap: 1rem;
 }
 
-.character--icon {
+.character-container {
+  position: relative;
+}
+
+.character-icon {
   transition: 0.3s;
   object-fit: contain;
   width: 8rem;
   height: 8rem;
+}
+
+.character-tick {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 150px;
+
 }
