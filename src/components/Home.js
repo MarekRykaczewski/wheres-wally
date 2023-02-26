@@ -12,14 +12,15 @@ export const Home = (props) => {
     ))
 
     return (
-        <main className="home">
-            <div>
-            <Link to={"/leaderboard"}>
+        <main id="home">
+            <div id="home-navigation">
+            <Link id="home-navigation-link" to={"/leaderboard"}>
                 Leaderboard
             </Link>
             </div>
-            
-            {levelItems}
+            <div id="home-levels">
+             {levelItems}
+            </div>
         </main>
     )
 }
