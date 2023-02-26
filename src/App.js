@@ -43,7 +43,9 @@ function App() {
     console.log(serverCoordinates)
     if (isNear(clientCoordinates.x, serverCoordinates.x) && isNear(clientCoordinates.y, serverCoordinates.y)) {
         const itemToUpdate = clientLevelsData.findIndex(x => x.id == id)
-        setClientLevelsData(prevData => [...prevData, clientLevelsData[itemToUpdate].characters[character].found = true]) 
+        const oldData = [...clientLevelsData]
+        const newData = oldData[itemToUpdate].characters[character].found = true
+        setClientLevelsData(oldData, newData)
         console.log(clientLevelsData)
     } else {
         console.log("miss")
