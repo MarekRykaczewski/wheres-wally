@@ -22,11 +22,17 @@ function App() {
     getServerLevelsData()
   }, [])
 
-  const [clientLevelsData, setClientLevelsData] = useState([
+  const initialClientLevelsData = [
     {id: 1, url: "level_1.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}} }, 
     {id: 2, url: "level_2.jpg", characters: { wally: {found: false, url: `../wally.png` }} },
     {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
-  ])
+  ]
+
+  const [clientLevelsData, setClientLevelsData] = useState(initialClientLevelsData)
+
+  const resetClientLevelsData = () => {
+    setClientLevelsData(initialClientLevelsData)
+  }
 
   console.log(serverLevelsData)
 
@@ -77,7 +83,7 @@ const isNear = (a, b) => {
            />
           <Route 
           path="/level/:id" 
-          element={<GameWindow clientLevelsData={clientLevelsData} serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
+          element={<GameWindow resetClientLevelsData={resetClientLevelsData} clientLevelsData={clientLevelsData} serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
           />
         </Routes>
       </div>

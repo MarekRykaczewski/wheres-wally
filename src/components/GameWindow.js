@@ -1,10 +1,14 @@
 import { ContextMenu } from "./ContextMenu"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
 import { Timer } from "./Timer";
 
 export const GameWindow = (props) => {
+
+    useEffect(() => {
+        props.resetClientLevelsData()
+    }, [])
 
     const { id } = useParams()
 
