@@ -30,11 +30,15 @@ export const Leaderboard = (props) => {
     return (
         <div id="leaderboard-main">
             <table id="leaderboard">
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Score (seconds)</th>
             </tr>
+            </thead>
+            <tbody>
             {leaderboardElements}
+            </tbody>
             </table>
         </div>
     )
