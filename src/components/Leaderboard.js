@@ -12,6 +12,7 @@ export const Leaderboard = (props) => {
             try {
                 const data = await getDocs(scoresListCollectionRef)
                 const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
+                filteredData.sort(({score:a}, {score:b}) => a-b)
                 setScoresList(filteredData)
             } catch (err) {
                 console.error(err)
