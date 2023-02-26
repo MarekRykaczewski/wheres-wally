@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './config/firebase';
 import { useEffect, useState } from 'react';
+import { Leaderboard } from './components/Leaderboard';
 
 function App() {
 
@@ -66,6 +67,10 @@ const isNear = (a, b) => {
       <Nav />
       <div className='main'>
         <Routes>
+          <Route 
+          path="/leaderboard" 
+          element={<Leaderboard />}
+           />
           <Route 
           path="/" 
           element={<Home levels={clientLevelsData}/>}

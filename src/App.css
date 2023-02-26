@@ -141,3 +141,38 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+#leaderboard-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+}
+
+#leaderboard td, #leaderboard th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#leaderboard tr:nth-child(even){background-color: #f2f2f2;}
+
+#leaderboard tr:hover {background-color: #ddd;}
+
+#leaderboard th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: tomato;
+  color: white;
+}
+
+.leaderboard-name-cell {
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.leaderboard-score-cell {
+  max-width: 2rem;
+}
