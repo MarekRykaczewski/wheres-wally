@@ -6,25 +6,35 @@ import { SubmitModal } from "./SubmitModal";
 
 export const GameWindow = (props) => {
 
-    const [openModal, setOpenModal] = useState(false)
+    const initialContextMenu = { show: false, x: 0, y: 0 }
+    const { id } = useParams()
+    const currentLevelData = props.clientLevelsData.find(x => x.id == id)
+    const characterArr = Object.keys(currentLevelData.characters)
 
-    const closeModal = () => {
-        setOpenModal(false)
-    }
+    const [openModal, setOpenModal] = useState(false)
+    const [contextMenu, setContextMenu ] = useState(initialContextMenu)
+    const [time, setTime] = useState(0);
+    const [running, setRunning] = useState(true);
 
     useEffect(() => {
         props.resetClientLevelsData()
     }, [])
 
-    const { id } = useParams()
+    useEffect(() => {
+        let interval;
+        if (running) {
+          interval = setInterval(() => {
+            setTime((prevTime) => prevTime + 1);
+          }, 1000);
+        } else if (!running) {
+          clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+      }, [running]);
 
-    const initialContextMenu = {
-        show: false,
-        x: 0,
-        y: 0,
+    const closeModal = () => {
+        setOpenModal(false)
     }
-
-    const [contextMenu, setContextMenu ] = useState(initialContextMenu)
 
     const handleContextMenu = event => {
         event.preventDefault()
@@ -35,27 +45,8 @@ export const GameWindow = (props) => {
 
     const contextMenuClose = () => setContextMenu(initialContextMenu)
 
-    const currentLevelData = props.clientLevelsData.find(x => x.id == id)
-    
-    const characterArr = Object.keys(currentLevelData.characters)
-
-    const [time, setTime] = useState(0);
-    const [running, setRunning] = useState(true);
-
-    useEffect(() => {
-      let interval;
-      if (running) {
-        interval = setInterval(() => {
-          setTime((prevTime) => prevTime + 1);
-        }, 1000);
-      } else if (!running) {
-        clearInterval(interval);
-      }
-      return () => clearInterval(interval);
-    }, [running]);
-
-    let counter = 0
     if (running === true) {
+        let counter = 0
         for (let i = 0; i < characterArr.length; i++) {
             console.log(currentLevelData.characters[characterArr[i]].found)
             if (currentLevelData.characters[characterArr[i]].found) {
@@ -71,7 +62,6 @@ export const GameWindow = (props) => {
             }
         }
     }
-
 
     return (
         <div id="game-window-main">
