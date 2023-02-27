@@ -3,8 +3,15 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
 import { Timer } from "./Timer";
+import { SubmitModal } from "./SubmitModal";
 
 export const GameWindow = (props) => {
+
+    const [openModal, setOpenModal] = useState(false)
+
+    const closeModal = () => {
+        setOpenModal(false)
+    }
 
     useEffect(() => {
         props.resetClientLevelsData()
@@ -35,19 +42,26 @@ export const GameWindow = (props) => {
     let counter = 0
     let stopTimer = false
 
-    for (let i = 0; i < characterArr.length; i++) {
-        console.log(currentLevelData.characters[characterArr[i]].found)
-        if (currentLevelData.characters[characterArr[i]].found) {
-            counter++
-        }
-        if (counter === characterArr.length) {
-            stopTimer = true
-            console.log("you won")
+    if (stopTimer === false) {
+        for (let i = 0; i < characterArr.length; i++) {
+            console.log(currentLevelData.characters[characterArr[i]].found)
+            if (currentLevelData.characters[characterArr[i]].found) {
+                counter++
+            }
+            if (counter === characterArr.length) {
+                stopTimer = true
+                if (openModal === false) {
+                    setOpenModal(true)
+                }
+                console.log("you won")
+            }
         }
     }
 
+
     return (
         <div id="game-window-main">
+            {openModal && <SubmitModal closeModal={() => closeModal()}/>}
             <Timer stopTimer={stopTimer}/>
             <CharactersLeft clientCurrentLevelData={currentLevelData}/>
             <img 
