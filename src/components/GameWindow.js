@@ -2,7 +2,6 @@ import { ContextMenu } from "./ContextMenu"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
-import { Timer } from "./Timer";
 import { SubmitModal } from "./SubmitModal";
 
 export const GameWindow = (props) => {
@@ -39,18 +38,33 @@ export const GameWindow = (props) => {
     const currentLevelData = props.clientLevelsData.find(x => x.id == id)
     
     const characterArr = Object.keys(currentLevelData.characters)
-    let counter = 0
-    let stopTimer = false
 
-    if (stopTimer === false) {
+    const [time, setTime] = useState(0);
+    const [running, setRunning] = useState(true);
+
+    useEffect(() => {
+      let interval;
+      if (running) {
+        interval = setInterval(() => {
+          setTime((prevTime) => prevTime + 1);
+        }, 1000);
+      } else if (!running) {
+        clearInterval(interval);
+      }
+      return () => clearInterval(interval);
+    }, [running]);
+
+    let counter = 0
+    if (running === true) {
         for (let i = 0; i < characterArr.length; i++) {
             console.log(currentLevelData.characters[characterArr[i]].found)
             if (currentLevelData.characters[characterArr[i]].found) {
                 counter++
             }
             if (counter === characterArr.length) {
-                stopTimer = true
+                setRunning(true)
                 if (openModal === false) {
+                    setRunning(false)
                     setOpenModal(true)
                 }
                 console.log("you won")
@@ -62,7 +76,16 @@ export const GameWindow = (props) => {
     return (
         <div id="game-window-main">
             {openModal && <SubmitModal closeModal={() => closeModal()}/>}
-            <Timer stopTimer={stopTimer}/>
+            <div className="timer">
+                <div className="timer-numbers">
+                Time elapsed (s): {time}
+            </div>
+            {/* <div className="timer-buttons">
+                <button onClick={() => setRunning(true)}>Start</button>
+                <button onClick={() => setRunning(false)}>Stop</button>
+                <button onClick={() => setTime(0)}>Reset</button>       
+            </div> */}
+            </div>
             <CharactersLeft clientCurrentLevelData={currentLevelData}/>
             <img 
             onContextMenu={contextMenuClose} 
