@@ -10,7 +10,14 @@ import { Leaderboard } from './components/Leaderboard';
 
 function App() {
 
+  const initialClientLevelsData = [
+    {id: 1, url: "level_1.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}} }, 
+    {id: 2, url: "level_2.jpg", characters: { wally: {found: false, url: `../wally.png` }} },
+    {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
+  ]
+
   const [serverLevelsData, setServerLevelsData] = useState([])
+  const [clientLevelsData, setClientLevelsData] = useState(initialClientLevelsData)
 
   useEffect(() => {
     const getServerLevelsData = async () => {
@@ -22,26 +29,12 @@ function App() {
     getServerLevelsData()
   }, [])
 
-  const initialClientLevelsData = [
-    {id: 1, url: "level_1.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}} }, 
-    {id: 2, url: "level_2.jpg", characters: { wally: {found: false, url: `../wally.png` }} },
-    {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
-  ]
-
-  const [clientLevelsData, setClientLevelsData] = useState(initialClientLevelsData)
-
   const resetClientLevelsData = () => {
     setClientLevelsData(initialClientLevelsData)
   }
 
-  console.log(serverLevelsData)
-
-
   const handleCharacterClick = (character, clientX, clientY, id) => {
     const clientCoordinates = {x: clientX, y: clientY}
-    console.log(serverLevelsData[0])
-    console.log(serverLevelsData[0].characters)
-    console.log(serverLevelsData[0].characters["wally"])
     const { x, y } = serverLevelsData[0].characters[character].coordinates
     const serverCoordinates = {x, y}
     console.log("client click")
