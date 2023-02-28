@@ -20,6 +20,9 @@ export const SubmitModal = (props) => {
                     <button onClick={() => props.closeModal()} className="modal-button">Cancel</button>
                     <button onClick={addEntry} className="modal-button">Continue</button>
                 </div>
+                <div className="login-warning">
+                {!props.username && "You must be logged in to do this!" }
+                </div>
             </div>
 
         </div>

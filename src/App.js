@@ -106,7 +106,7 @@ const isNear = (a, b) => {
            />
           <Route 
           path="/level/:id" 
-          element={<GameWindow resetClientLevelsData={resetClientLevelsData} clientLevelsData={clientLevelsData} serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
+          element={<GameWindow username={username} resetClientLevelsData={resetClientLevelsData} clientLevelsData={clientLevelsData} serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
           />
         </Routes>
       </div>

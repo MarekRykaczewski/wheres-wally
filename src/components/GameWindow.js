@@ -65,7 +65,7 @@ export const GameWindow = (props) => {
 
     return (
         <div id="game-window-main">
-            {openModal && <SubmitModal score={time} closeModal={() => closeModal() }/>}
+            {openModal && <SubmitModal username={props.username} score={time} closeModal={() => closeModal() }/>}
             <div className="timer">
                 <div className="timer-numbers">
                 Time elapsed (s): {time}

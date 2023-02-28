@@ -261,3 +261,8 @@ body {
   text-align: center;
   font-weight: bold;
 }
+
+.login-warning {
+  height: 2rem;
+  color: red;
+}
