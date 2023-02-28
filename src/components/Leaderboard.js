@@ -22,8 +22,9 @@ export const Leaderboard = (props) => {
         getScoresList()
     }, [])
 
-    const leaderboardElements = scoresList.map((scoreEntry) => (
+    const leaderboardElements = scoresList.map((scoreEntry, index) => (
         <tr key={scoreEntry.id}>
+            <td> {index+1} </td>
             <td className="leaderboard-name-cell"> {scoreEntry.name} </td>
             <td className="leaderboard-score-cell"> {scoreEntry.score}</td>
         </tr>
@@ -34,6 +35,7 @@ export const Leaderboard = (props) => {
             <table id="leaderboard">
             <thead>
             <tr>
+                <th>Rank</th>
                 <th>Name</th>
                 <th>Score (seconds)</th>
             </tr>
