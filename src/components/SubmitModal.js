@@ -6,7 +6,15 @@ export const SubmitModal = (props) => {
     const leaderboardCollectionRef = collection(db, "leaderboard")
 
     const addEntry = async () => {
-        await addDoc(leaderboardCollectionRef, {name: "test_user", score: props.score})
+        if (props.username) {
+            await addDoc(leaderboardCollectionRef, {name: props.username, score: props.score})
+        } else {
+            return
+        }
+    }
+
+    const greyedOutButton = {
+        backgroundColor: !props.username && "grey"
     }
 
     return (
@@ -18,7 +26,7 @@ export const SubmitModal = (props) => {
                 <div className="body">
                     <span> Your score: {props.score} seconds!</span>
                     <button onClick={() => props.closeModal()} className="modal-button">Cancel</button>
-                    <button onClick={addEntry} className="modal-button">Continue</button>
+                    <button style={greyedOutButton} onClick={addEntry} className="modal-button">Continue</button>
                 </div>
                 <div className="login-warning">
                 {!props.username && "You must be logged in to do this!" }
