@@ -213,6 +213,8 @@ body {
 }
 
 .modal-container {
+  transition: 0.3s;
+  animation: pop 0.3s linear;
   position: fixed;
   width: 500px;
   height: 250px;
@@ -265,4 +267,8 @@ body {
 .login-warning {
   height: 2rem;
   color: red;
+}
+
+@keyframes pop{
+  50%  {transform: scale(0.8);}
 }
