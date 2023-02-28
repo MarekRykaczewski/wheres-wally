@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getDocs, collection } from "firebase/firestore"
+import { getDocs, collection, query, where, limit, orderBy } from "firebase/firestore"
 import { db } from "../config/firebase"
 
 export const Leaderboard = (props) => {
@@ -10,7 +10,8 @@ export const Leaderboard = (props) => {
         const scoresListCollectionRef = collection(db, "leaderboard")
         const getScoresList = async () => {
             try {
-                const data = await getDocs(scoresListCollectionRef)
+                const q = query(scoresListCollectionRef, orderBy("score"), limit(10))
+                const data = await getDocs(q)
                 const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
                 filteredData.sort(({score:a}, {score:b}) => a-b)
                 setScoresList(filteredData)
