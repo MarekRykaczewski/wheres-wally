@@ -7,6 +7,8 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from './config/firebase';
 import { useEffect, useState } from 'react';
 import { Leaderboard } from './components/Leaderboard';
+import { auth, googleProvider } from "./config/firebase"
+import { signInWithPopup, signOut } from "firebase/auth"
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
     {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
   ]
 
+  const [username, setUsername] = useState("")
+  const [profilePicUrl, setProfilePicUrl] = useState("")
   const [serverLevelsData, setServerLevelsData] = useState([])
   const [clientLevelsData, setClientLevelsData] = useState(initialClientLevelsData)
 
@@ -28,6 +32,27 @@ function App() {
     }
     getServerLevelsData()
   }, [])
+
+  const signInWithGoogle = () => {
+      signInWithPopup(auth, googleProvider)
+      .then((result) => {
+          const username = result.user.displayName
+          const profilePicUrl = result.user.photoURL
+
+          setUsername(username)
+          setProfilePicUrl(profilePicUrl)
+      })
+  }
+
+  const logOut = async () => {
+      try {
+          await signOut(auth)
+          setUsername("")
+          setProfilePicUrl("")
+      } catch (err) {
+          console.error(err)
+      }
+  }
 
   const resetClientLevelsData = () => {
     setClientLevelsData(initialClientLevelsData)
@@ -63,7 +88,12 @@ const isNear = (a, b) => {
   return (
     <Router>
     <div className="App">
-      <Nav />
+      <Nav 
+        username={username}
+        profilePicUrl={profilePicUrl}
+        signInWithGoogle={signInWithGoogle}
+        logOut={logOut}
+      />
       <div className='main'>
         <Routes>
           <Route 
