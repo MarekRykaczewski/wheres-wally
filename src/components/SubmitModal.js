@@ -12,12 +12,12 @@ export const SubmitModal = (props) => {
     return (
         <div className="modal-background">
             <div className="modal-container">
-                <button className="modal-close" onClick={() => props.closeModal()}>X</button>
                 <div className="title">
                     <h1>Would you like to submit your score?</h1>
                 </div>
                 <div className="body">
-                    <button className="modal-button">Cancel</button>
+                    <span> Your score: {props.score} seconds!</span>
+                    <button onClick={() => props.closeModal()} className="modal-button">Cancel</button>
                     <button onClick={addEntry} className="modal-button">Continue</button>
                 </div>
             </div>
