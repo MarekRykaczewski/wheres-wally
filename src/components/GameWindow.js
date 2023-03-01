@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
 import { SubmitModal } from "./SubmitModal";
+import { Toast } from "./Toast";
 
 export const GameWindow = (props) => {
 
