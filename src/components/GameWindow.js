@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
 import { SubmitModal } from "./SubmitModal";
-import { Toast } from "./Toast";
 
 export const GameWindow = (props) => {
 
@@ -71,7 +70,6 @@ export const GameWindow = (props) => {
 
     return (
         <div id="game-window-main">
-            {props.username && <Toast mainMessage={"Success"} subMessage={"You have logged in!"}/>}
             {openModal && <SubmitModal goToNextLevel={goToNextLevel} username={props.username} score={time} closeModal={() => closeModal() }/>}
             <div className="timer">
                 <div className="timer-numbers">

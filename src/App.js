@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { Leaderboard } from './components/Leaderboard';
 import { auth, googleProvider } from "./config/firebase"
 import { signInWithPopup, signOut } from "firebase/auth"
+import { Toast } from './components/Toast';
 
 function App() {
 
@@ -88,6 +89,7 @@ const isNear = (a, b) => {
   return (
     <Router>
     <div className="App">
+    {username && <Toast mainMessage={"Success"} subMessage={"You have logged in!"}/>}
       <Nav 
         username={username}
         profilePicUrl={profilePicUrl}
