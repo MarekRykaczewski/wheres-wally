@@ -12,6 +12,7 @@ export const SubmitModal = (props) => {
     const [submitted, setSubmitted] = useState(false)
 
     const leaderboardCollectionRef = collection(db, "leaderboard")
+    const nextLevel = +props.currentLevel + 1
 
     const addEntry = async () => {
         if (props.username || submitted === false) {
@@ -37,7 +38,7 @@ export const SubmitModal = (props) => {
                     <span> Your score: {props.score} seconds!</span>
                     <button onClick={() => props.closeModal()} className="modal-button">Cancel</button>
                     {submitted === false && <button style={greyedOutButton} onClick={addEntry} className="modal-button">Continue</button>}
-                    {submitted === true && <button className="modal-button"> Next Level </button>}
+                    {submitted === true && <button onClick={props.goToNextLevel} className="modal-button"> Next Level </button>}
                 </div>
                 <div className="login-warning">
                 {!props.username && "You must be logged in to do this!" }

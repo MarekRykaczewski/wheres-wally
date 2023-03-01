@@ -1,6 +1,6 @@
 import { ContextMenu } from "./ContextMenu"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
 import { SubmitModal } from "./SubmitModal";
 import { Toast } from "./Toast";
@@ -11,6 +11,7 @@ export const GameWindow = (props) => {
     const { id } = useParams()
     const currentLevelData = props.clientLevelsData.find(x => x.id == id)
     const characterArr = Object.keys(currentLevelData.characters)
+    const navigate = useNavigate()
 
     const [openModal, setOpenModal] = useState(false)
     const [contextMenu, setContextMenu ] = useState(initialContextMenu)
@@ -46,6 +47,11 @@ export const GameWindow = (props) => {
 
     const contextMenuClose = () => setContextMenu(initialContextMenu)
 
+    const goToNextLevel = () => {
+        navigate(`/level/${+id + 1}`)
+        navigate(0)
+    }
+
     if (running === true) {
         let counter = 0
         for (let i = 0; i < characterArr.length; i++) {
@@ -66,7 +72,7 @@ export const GameWindow = (props) => {
     return (
         <div id="game-window-main">
             {props.username && <Toast mainMessage={"Success"} subMessage={"You have logged in!"}/>}
-            {openModal && <SubmitModal username={props.username} score={time} closeModal={() => closeModal() }/>}
+            {openModal && <SubmitModal goToNextLevel={goToNextLevel} username={props.username} score={time} closeModal={() => closeModal() }/>}
             <div className="timer">
                 <div className="timer-numbers">
                 Time elapsed (s): {time}
