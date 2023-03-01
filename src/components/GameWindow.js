@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { CharactersLeft } from "./CharactersLeft"
 import { SubmitModal } from "./SubmitModal";
+import { Toast } from "./Toast";
 
 export const GameWindow = (props) => {
 
@@ -48,7 +49,6 @@ export const GameWindow = (props) => {
     if (running === true) {
         let counter = 0
         for (let i = 0; i < characterArr.length; i++) {
-            console.log(currentLevelData.characters[characterArr[i]].found)
             if (currentLevelData.characters[characterArr[i]].found) {
                 counter++
             }
@@ -65,6 +65,7 @@ export const GameWindow = (props) => {
 
     return (
         <div id="game-window-main">
+            {props.username && <Toast mainMessage={"Success"} subMessage={"You have logged in!"}/>}
             {openModal && <SubmitModal username={props.username} score={time} closeModal={() => closeModal() }/>}
             <div className="timer">
                 <div className="timer-numbers">

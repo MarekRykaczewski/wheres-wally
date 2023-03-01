@@ -269,6 +269,67 @@ body {
   color: red;
 }
 
+.toast {
+  z-index: 1;
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  border-radius: 10px;
+  padding: 20px 45px 20px 35px;
+  background-color: white;
+  box-shadow:  0 5px 10px rgba(0, 0, 0, 0.35);
+  border-left: 6px solid yellowgreen;
+  animation: slide-in 500ms ease, slide-out 500ms 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide-in {
+	from {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0%);
+	  opacity: 1;
+	}
+}
+
+@keyframes slide-out {
+	to {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+}
+
+.toast-content {
+  position: relative;
+}
+
+.toast-icon {
+  font-weight: bold;
+  color: grey;
+  position: absolute;
+  left: 160px;
+  top: -15px;
+  cursor: pointer;
+}
+
+.toast-message-container {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toast-message-main {
+  font-weight: bold;
+}
+
+.toast-message {
+
+}
+
 @keyframes pop{
   50%  {transform: scale(1.2);}
 }
