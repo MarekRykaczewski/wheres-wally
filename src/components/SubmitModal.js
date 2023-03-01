@@ -23,7 +23,7 @@ export const SubmitModal = (props) => {
     }
 
     const greyedOutButton = {
-        backgroundColor: (!props.username && "grey") || (submitted === false && "grey")
+        backgroundColor: (!props.username && "grey")
     }
 
     return (
@@ -36,7 +36,8 @@ export const SubmitModal = (props) => {
                 <div className="body">
                     <span> Your score: {props.score} seconds!</span>
                     <button onClick={() => props.closeModal()} className="modal-button">Cancel</button>
-                    <button style={greyedOutButton} onClick={addEntry} className="modal-button">Continue</button>
+                    {submitted === false && <button style={greyedOutButton} onClick={addEntry} className="modal-button">Continue</button>}
+                    {submitted === true && <button className="modal-button"> Next Level </button>}
                 </div>
                 <div className="login-warning">
                 {!props.username && "You must be logged in to do this!" }
