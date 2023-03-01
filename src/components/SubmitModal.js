@@ -12,7 +12,6 @@ export const SubmitModal = (props) => {
     const [submitted, setSubmitted] = useState(false)
 
     const leaderboardCollectionRef = collection(db, "leaderboard")
-    const nextLevel = +props.currentLevel + 1
 
     const addEntry = async () => {
         if (props.username || submitted === false) {
