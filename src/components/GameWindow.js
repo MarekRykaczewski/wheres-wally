@@ -49,7 +49,14 @@ export const GameWindow = (props) => {
 
     const goToNextLevel = () => {
         navigate(`/level/${+id + 1}`)
-        navigate(0)
+        resetLevel()
+    }
+
+    const resetLevel = () => {
+        setOpenModal(false)
+        setTime(0)
+        setRunning(true)
+        contextMenuClose()
     }
 
     if (running === true) {
