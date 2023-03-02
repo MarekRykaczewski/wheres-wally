@@ -302,19 +302,6 @@ body {
 	}
 }
 
-.toast-content {
-  position: relative;
-}
-
-.toast-icon {
-  font-weight: bold;
-  color: grey;
-  position: absolute;
-  left: 160px;
-  top: -15px;
-  cursor: pointer;
-}
-
 .toast-message-container {
   display: flex;
   gap: 5px;
