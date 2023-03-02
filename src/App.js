@@ -8,7 +8,7 @@ import { db } from './config/firebase';
 import { useEffect, useState } from 'react';
 import { Leaderboard } from './components/Leaderboard';
 import { auth, googleProvider } from "./config/firebase"
-import { signInWithPopup, signOut } from "firebase/auth"
+import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth"
 import { Toast } from './components/Toast';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
     {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} }
   ]
 
+  const [user, setUser] = useState(null)
   const [username, setUsername] = useState("")
   const [profilePicUrl, setProfilePicUrl] = useState("")
   const [serverLevelsData, setServerLevelsData] = useState([])
@@ -34,14 +35,22 @@ function App() {
     getServerLevelsData()
   }, [])
 
+  useEffect(()=> {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser)
+      setUsername(currentUser.displayName)
+      setProfilePicUrl(currentUser.photoURL)
+    })
+  }, [])
+
   const signInWithGoogle = () => {
       signInWithPopup(auth, googleProvider)
       .then((result) => {
-          const username = result.user.displayName
-          const profilePicUrl = result.user.photoURL
+          const user = result.user
 
-          setUsername(username)
-          setProfilePicUrl(profilePicUrl)
+          setUser(user)
+          setUsername(user.displayName)
+          setProfilePicUrl(user.photoURL)
       })
   }
 
@@ -89,7 +98,7 @@ const isNear = (a, b) => {
   return (
     <Router>
     <div className="App">
-    {username && <Toast mainMessage={"Success"} subMessage={"You have logged in!"}/>}
+    {user && <Toast mainMessage={"Success"} subMessage={"You have logged in!"}/>}
       <Nav 
         username={username}
         profilePicUrl={profilePicUrl}
