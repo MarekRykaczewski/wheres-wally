@@ -3,13 +3,11 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .App {
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .nav {
@@ -280,11 +278,10 @@ body {
 }
 
 .toast {
-  overflow: hidden;
   z-index: 1;
   position: absolute;
-  top: 25px;
-  right: 30px;
+  top: 5rem;
+  right: 16rem;
   border-radius: 10px;
   padding: 20px 45px 20px 35px;
   background-color: white;
@@ -300,7 +297,6 @@ body {
 }
 
 .toast-message-container {
-  overflow: hidden;
   display: flex;
   gap: 5px;
   flex-direction: column;
