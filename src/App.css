@@ -101,21 +101,21 @@ body {
 }
 
 #home-navigation {
+  padding: 10px;
+  background-color: #FF3814;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px;
-  background-color: tomato;
   border-radius: 10px;
-  height: 4rem;
-  width: 20rem;
-  font-size: 2rem;
+  height: 2rem;
+  width: 10rem;
 }
 
 #home-navigation-link {
   color: white;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
