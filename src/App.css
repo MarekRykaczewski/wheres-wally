@@ -280,8 +280,8 @@ body {
 .toast {
   z-index: 1;
   position: absolute;
-  top: 5rem;
-  right: 16rem;
+  top: 2rem;
+  right: 3rem;
   border-radius: 10px;
   padding: 20px 45px 20px 35px;
   background-color: white;
@@ -291,7 +291,7 @@ body {
   height: 3rem;
   display: flex;
   flex-direction: column;
-  animation: slide-in 500ms ease, slide-out 500ms 3s;
+  animation: fade-in 500ms ease, fade-out 500ms 3s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
@@ -307,20 +307,17 @@ body {
   font-weight: bold;
 }
 
-@keyframes slide-in {
+@keyframes fade-in {
 	from {
-	  transform: translateX(100%);
 	  opacity: 0;
 	}
 	to {
-	  transform: translateX(0%);
 	  opacity: 1;
 	}
 }
 
-@keyframes slide-out {
+@keyframes fade-out {
 	to {
-	  transform: translateX(100%);
 	  opacity: 0;
 	}
 }
