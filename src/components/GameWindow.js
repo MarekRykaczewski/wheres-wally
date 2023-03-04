@@ -20,6 +20,7 @@ export const GameWindow = (props) => {
 
     useEffect(() => {
         props.resetClientLevelsData()
+        setOpenModal(false)
     }, [])
 
     useEffect(() => {
