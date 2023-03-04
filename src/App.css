@@ -3,11 +3,13 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .App {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .nav {
@@ -62,6 +64,7 @@ body {
 }
 
 #context-menu {
+  overflow: hidden;
   position: absolute;
   z-index: 99999;
   width: 150px;
@@ -161,10 +164,17 @@ body {
 
 }
 
+#game-window {
+  width: 1500px;
+}
+
 #game-window-main {
+  display: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 #leaderboard-main {
@@ -270,6 +280,7 @@ body {
 }
 
 .toast {
+  overflow: hidden;
   z-index: 1;
   position: absolute;
   top: 25px;
@@ -279,9 +290,25 @@ body {
   background-color: white;
   box-shadow:  0 5px 10px rgba(0, 0, 0, 0.35);
   border-left: 6px solid yellowgreen;
+  width: 10rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
   animation: slide-in 500ms ease, slide-out 500ms 3s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
+}
+
+.toast-message-container {
+  overflow: hidden;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toast-message-main {
+  font-weight: bold;
 }
 
 @keyframes slide-in {
@@ -300,21 +327,6 @@ body {
 	  transform: translateX(100%);
 	  opacity: 0;
 	}
-}
-
-.toast-message-container {
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.toast-message-main {
-  font-weight: bold;
-}
-
-.toast-message {
-
 }
 
 @keyframes pop{
