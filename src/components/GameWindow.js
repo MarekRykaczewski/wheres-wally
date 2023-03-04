@@ -77,6 +77,11 @@ export const GameWindow = (props) => {
         }
     }
 
+    window.onpopstate = () => {
+        navigate("/");
+      }
+
+
     return (
         <div id="game-window-main">
             {openModal && <SubmitModal goToNextLevel={goToNextLevel} username={props.username} score={time} closeModal={() => closeModal() }/>}
