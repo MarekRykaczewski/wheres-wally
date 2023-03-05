@@ -109,7 +109,7 @@ const isNear = (a, b) => {
         <Routes>
           <Route 
           path="/leaderboard" 
-          element={<Leaderboard />}
+          element={<Leaderboard levels={clientLevelsData}/>}
            />
           <Route 
           path="/" 
