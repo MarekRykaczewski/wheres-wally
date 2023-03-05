@@ -26,6 +26,7 @@ export const Leaderboard = (props) => {
         <tr key={scoreEntry.id}>
             <td> {index+1} </td>
             <td className="leaderboard-name-cell"> {scoreEntry.name} </td>
+            <td className="leaderboard-name-cell"> {scoreEntry.level} </td>
             <td className="leaderboard-score-cell"> {scoreEntry.score}</td>
         </tr>
     ))
@@ -37,6 +38,7 @@ export const Leaderboard = (props) => {
             <tr>
                 <th>Rank</th>
                 <th>Name</th>
+                <th>Level</th>
                 <th>Score (seconds)</th>
             </tr>
             </thead>
