@@ -15,7 +15,7 @@ export const SubmitModal = (props) => {
 
     const addEntry = async () => {
         if (props.username || submitted === false) {
-            await addDoc(leaderboardCollectionRef, {level: +props.currentLevel, name: props.username, score: +props.score})
+            await addDoc(leaderboardCollectionRef, {level: props.currentLevel, name: props.username, score: +props.score})
             setSubmitted(true)
         } else {
             return
