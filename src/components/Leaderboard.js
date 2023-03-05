@@ -43,8 +43,9 @@ export const Leaderboard = (props) => {
 
     return (
         <div id="leaderboard-main">
-            <div>
-            <select value={levelToFilter} onChange={handleChange}>
+            <div className="select-container">
+            <label for="level-select"> Select level</label>
+            <select id="level-select" className="select" value={levelToFilter} onChange={handleChange}>
                 {optionElements}
             </select>
             </div>
