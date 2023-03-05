@@ -49,6 +49,7 @@ export const Leaderboard = (props) => {
                 {optionElements}
             </select>
             </div>
+            <h1> Top ten scores for level {levelToFilter}</h1>
             <table id="leaderboard">
             <thead>
             <tr>
