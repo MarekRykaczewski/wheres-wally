@@ -13,6 +13,7 @@ export const GameWindow = (props) => {
     const characterArr = Object.keys(currentLevelData.characters)
     const navigate = useNavigate()
 
+    const [openDetails, setOpenDetails] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [contextMenu, setContextMenu ] = useState(initialContextMenu)
     const [time, setTime] = useState(0);
@@ -35,6 +36,10 @@ export const GameWindow = (props) => {
         }
         return () => clearInterval(interval);
       }, [running]);
+
+    const toggleDetails = () => {
+        setOpenDetails(!openDetails)
+    }
 
     const closeModal = () => {
         setOpenModal(false)
@@ -84,19 +89,25 @@ export const GameWindow = (props) => {
 
 
     return (
-        <div id="game-window-main">
+        <div>
             {openModal && <SubmitModal currentLevel={+id} goToNextLevel={goToNextLevel} triggerSubmitToast={() => props.triggerSubmitToast()} username={props.username} score={time} closeModal={() => closeModal() }/>}
+            <div className="game-window-side">
+            <button onClick={toggleDetails} className="game-window-side-title">Details</button>
+            {openDetails && <div className="game-window-side-container">
             <div className="timer">
                 <div className="timer-numbers">
                 Time elapsed (s): {time}
             </div>
+            </div>
+            <CharactersLeft clientCurrentLevelData={currentLevelData}/>
             {/* <div className="timer-buttons">
                 <button onClick={() => setRunning(true)}>Start</button>
                 <button onClick={() => setRunning(false)}>Stop</button>
                 <button onClick={() => setTime(0)}>Reset</button>       
             </div> */}
-            </div>
-            <CharactersLeft clientCurrentLevelData={currentLevelData}/>
+            </div>}
+            </div> 
+            <div id="game-window-main">
             <img 
             onContextMenu={contextMenuClose} 
             onClick={handleContextMenu} 
@@ -113,6 +124,7 @@ export const GameWindow = (props) => {
             handleCharacterClick={props.handleCharacterClick}
             currentLevel={id}
             />}
+            </div>
         </div>
 
     )

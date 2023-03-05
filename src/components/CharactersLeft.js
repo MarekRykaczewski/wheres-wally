@@ -9,8 +9,10 @@ export const CharactersLeft = (props) => {
 
     return (
         <div className="characters">
-            <h1> Find these folks! </h1>
+            <h3> Find these folks! </h3>
+            <div className="characters-container">
             {characterImages}
+            </div>
         </div>
     )
 }

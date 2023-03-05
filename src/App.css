@@ -139,10 +139,19 @@ body {
 }
 
 .characters {
+  background-color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+.characters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .character-container {
@@ -166,15 +175,48 @@ body {
 
 #game-window {
   width: 1500px;
+  align-self: center;
 }
 
 #game-window-main {
   display: relative;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-window-side {
+  width: 11rem;
+  left: 50px;
+  top: 50px;
+  position: fixed;
+  background-color: white;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+}
+
+.game-window-side-title {
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+  background-color: grey;
+  width: inherit;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.game-window-side-title:hover {
+  background-color: rgb(84, 84, 84);
+}
+
+.game-window-side-container {
+  padding: 10px;
 }
 
 #leaderboard-main {
