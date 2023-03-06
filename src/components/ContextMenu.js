@@ -4,8 +4,6 @@ export const ContextMenu = (props) => {
         <div key={character} onClick={() => props.handleCharacterClick(character, props.x, props.y, props.currentLevel)} className="context-menu--item">{character.toUpperCase()}</div>
     ))
 
-    console.log(contextMenuElements)
-
     return (
         <div style={{top: `${props.y}px`, left: `${props.x}px`}} id="context-menu">
             {contextMenuElements}

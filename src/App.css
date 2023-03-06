@@ -49,10 +49,6 @@ body {
   width: 5rem;
 }
 
-#game-window {
-  width: 1500px;
-}
-
 .main {
   background: white;
   width: 100%;
@@ -139,7 +135,6 @@ body {
 }
 
 .characters {
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,7 +169,7 @@ body {
 }
 
 #game-window {
-  width: 1500px;
+  width: 1800px;
   align-self: center;
 }
 
@@ -188,16 +183,18 @@ body {
 }
 
 .game-window-side {
+  border-radius: 10px;
   width: 11rem;
   left: 50px;
   top: 50px;
   position: fixed;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .game-window-side-title {
@@ -216,6 +213,7 @@ body {
 }
 
 .game-window-side-container {
+  background-color: rgba(255, 255, 255, 0.3);
   padding: 10px;
 }
 
