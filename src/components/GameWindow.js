@@ -45,11 +45,16 @@ export const GameWindow = (props) => {
         setOpenModal(false)
     }
 
-    const handleContextMenu = event => {
+    const handleContextMenu = (event) => {
         event.preventDefault()
         console.log("clicked")
+        const imageX = Math.round(
+            (event.nativeEvent.offsetX / event.nativeEvent.target.offsetWidth) * 100)
+        console.log(imageX)
+            const imageY = Math.round(
+            (event.nativeEvent.offsetY / event.nativeEvent.target.offsetHeight) * 100)
         const { pageX, pageY } = event
-        setContextMenu({ show: true, x: pageX, y: pageY })
+        setContextMenu({ show: true, x: pageX, y: pageY, imgX: imageX, imgY: imageY })
     }
 
     const contextMenuClose = () => setContextMenu(initialContextMenu)
@@ -89,7 +94,7 @@ export const GameWindow = (props) => {
 
 
     return (
-        <div>
+        <div className='main'>
             {openModal && <SubmitModal currentLevel={+id} goToNextLevel={goToNextLevel} triggerSubmitToast={() => props.triggerSubmitToast()} username={props.username} score={time} closeModal={() => closeModal() }/>}
             <div className="game-window-side">
             <button onClick={toggleDetails} className="game-window-side-title">Details</button>
@@ -110,7 +115,7 @@ export const GameWindow = (props) => {
             <div id="game-window-main">
             <img 
             onContextMenu={contextMenuClose} 
-            onClick={handleContextMenu} 
+            onClick={(event) => handleContextMenu(event)} 
             id="game-window" 
             alt="game" 
             src={`../level_${id}.jpg`}
@@ -119,6 +124,8 @@ export const GameWindow = (props) => {
             <ContextMenu
             x={contextMenu.x}
             y={contextMenu.y}
+            imgX={contextMenu.imgX}
+            imgY={contextMenu.imgY}
             clientCurrentLevelData={currentLevelData}
             serverLevelsData={props.serverLevelsData}
             handleCharacterClick={props.handleCharacterClick}

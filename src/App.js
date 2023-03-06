@@ -105,7 +105,6 @@ const isNear = (a, b) => {
         signInWithGoogle={signInWithGoogle}
         logOut={logOut}
       />
-      <div className='main'>
         <Routes>
           <Route 
           path="/leaderboard" 
@@ -120,7 +119,6 @@ const isNear = (a, b) => {
           element={<GameWindow username={username} resetClientLevelsData={resetClientLevelsData} clientLevelsData={clientLevelsData} serverLevelsData={serverLevelsData} handleCharacterClick={handleCharacterClick}/>} 
           />
         </Routes>
-      </div>
     </div>
     </Router>
   );
