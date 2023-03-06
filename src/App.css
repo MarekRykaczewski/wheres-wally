@@ -327,6 +327,8 @@ body {
 }
 
 .modal-button {
+  transition: 0.3s;
+  cursor: pointer;
   background-color: tomato;
   color: white;
   border: none;
@@ -335,6 +337,11 @@ body {
   height: 2rem;
   text-align: center;
   font-weight: bold;
+}
+
+.modal-button:hover {
+  transition: 0.3s;
+  background-color: #FF3814;
 }
 
 .login-warning {
