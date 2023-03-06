@@ -1,7 +1,6 @@
 import { ContextMenu } from "./ContextMenu"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
-import { CharactersLeft } from "./CharactersLeft"
 import { SubmitModal } from "./SubmitModal";
 import { Details } from "./Details";
 
@@ -13,7 +12,6 @@ export const GameWindow = (props) => {
     const characterArr = Object.keys(currentLevelData.characters)
     const navigate = useNavigate()
 
-    // const [openDetails, setOpenDetails] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [contextMenu, setContextMenu ] = useState(initialContextMenu)
     const [time, setTime] = useState(0);
@@ -93,14 +91,6 @@ export const GameWindow = (props) => {
         <div className='main'>
             {openModal && <SubmitModal currentLevel={+id} goToNextLevel={goToNextLevel} triggerSubmitToast={() => props.triggerSubmitToast()} username={props.username} score={time} closeModal={() => closeModal() }/>}
             <Details time={time} currentLevelData={currentLevelData}/>
-            {/* {openDetails && <div className="game-window-side-container">
-            <div className="timer">
-                <div className="timer-numbers">
-                Time elapsed (s): {time}
-            </div>
-            </div>
-            <CharactersLeft clientCurrentLevelData={currentLevelData}/>
-            </div>} */}
             <div id="game-window-main">
             <img 
             onContextMenu={contextMenuClose} 
