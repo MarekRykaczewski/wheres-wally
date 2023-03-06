@@ -188,7 +188,7 @@ body {
   border-radius: 10px;
   width: 11rem;
   left: 50px;
-  top: 50px;
+  top: 100px;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -197,9 +197,11 @@ body {
   text-align: center;
   backdrop-filter: blur(3px);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(182, 182, 182, 0.3);
 }
 
 .game-window-side-title {
+  transition: 0.5s;
   font-weight: bold;
   color: white;
   font-size: 1.2rem;
@@ -208,15 +210,23 @@ body {
   height: 50px;
   border: none;
   cursor: pointer;
+  opacity: 70%;
 }
 
 .game-window-side-title:hover {
+  transition: 0.5s;
   background-color: rgb(84, 84, 84);
+  opacity: 100%;
 }
 
 .game-window-side-container {
-  background-color: rgba(255, 255, 255, 0.3);
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 #leaderboard-main {
