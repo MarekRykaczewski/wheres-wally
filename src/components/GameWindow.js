@@ -106,11 +106,6 @@ export const GameWindow = (props) => {
             </div>
             </div>
             <CharactersLeft clientCurrentLevelData={currentLevelData}/>
-            {/* <div className="timer-buttons">
-                <button onClick={() => setRunning(true)}>Start</button>
-                <button onClick={() => setRunning(false)}>Stop</button>
-                <button onClick={() => setTime(0)}>Reset</button>       
-            </div> */}
             </div>}
             </div> 
             <div id="game-window-main">
