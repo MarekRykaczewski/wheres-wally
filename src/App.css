@@ -219,6 +219,10 @@ body {
   opacity: 100%;
 }
 
+.details-active {
+  opacity: 100%;
+}
+
 .game-window-side-container {
   padding: 10px;
   display: flex;

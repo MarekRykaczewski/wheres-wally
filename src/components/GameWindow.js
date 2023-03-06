@@ -37,7 +37,8 @@ export const GameWindow = (props) => {
         return () => clearInterval(interval);
       }, [running]);
 
-    const toggleDetails = () => {
+    const toggleDetails = (event) => {
+        event.currentTarget.classList.toggle('details-active')
         setOpenDetails(!openDetails)
     }
 
