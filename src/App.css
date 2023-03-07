@@ -150,7 +150,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
 }
 
 .characters-container {
@@ -167,15 +166,15 @@ body {
 .character-icon {
   transition: 0.3s;
   object-fit: contain;
-  width: 8rem;
-  height: 8rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .character-tick {
   position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 11rem;
+  top: -30%;
+  left: -30%;
+  width: 7rem;
 
 }
 
@@ -204,9 +203,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  backdrop-filter: blur(3px);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  background-color: rgba(182, 182, 182, 0.3);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 4px;
 }
 
 .game-window-side-title {
