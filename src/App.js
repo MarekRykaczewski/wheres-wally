@@ -90,7 +90,7 @@ function App() {
 }
 
 const isNear = (a, b) => {
-    if (a < b+5) {
+    if (a < b+2) {
         return true
     } else {
         return false
