@@ -15,7 +15,7 @@ export const Details = (props) => {
     <button onClick={toggleDetails} className="game-window-side-title">Details</button>
     {openDetails &&    
     <div className="game-window-side-container">
-        <div >
+        <div className="game-window-side-background">
             <div className="timer">
                 <div className="timer-numbers">
                 Time elapsed (s): {props.time}

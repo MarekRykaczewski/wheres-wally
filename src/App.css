@@ -203,7 +203,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 4px;
 }
 
@@ -231,13 +230,17 @@ body {
 }
 
 .game-window-side-container {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: white;
+}
+
+.game-window-side-background {
+  padding: 10px;
 }
 
 #leaderboard-main {
