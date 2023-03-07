@@ -72,7 +72,7 @@ function App() {
 
   const handleCharacterClick = (character, clientX, clientY, id) => {
     const clientCoordinates = {x: clientX, y: clientY}
-    const { x, y } = serverLevelsData[0].characters[character].coordinates
+    const { x, y } = serverLevelsData[+id - 1].characters[character].coordinates
     const serverCoordinates = {x, y}
     console.log("client click")
     console.log(clientCoordinates)
