@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 import { SubmitModal } from "./SubmitModal";
 import { Details } from "./Details";
+import { Toast } from "./Toast"
 
 export const GameWindow = (props) => {
 
@@ -16,11 +17,13 @@ export const GameWindow = (props) => {
     const [contextMenu, setContextMenu ] = useState(initialContextMenu)
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(true);
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         props.resetClientLevelsData()
         setOpenModal(false)
         setRunning(true)
+        setSubmitted(false)
     }, [])
 
     useEffect(() => {
@@ -63,6 +66,7 @@ export const GameWindow = (props) => {
         setTime(0)
         setRunning(true)
         contextMenuClose()
+        setSubmitted(false)
     }
 
     if (running === true) {
@@ -89,7 +93,8 @@ export const GameWindow = (props) => {
 
     return (
         <div className='main'>
-            {openModal && <SubmitModal currentLevel={+id} goToNextLevel={goToNextLevel} triggerSubmitToast={() => props.triggerSubmitToast()} username={props.username} score={time} closeModal={() => closeModal() }/>}
+            {submitted === true && <Toast mainMessage={"Success"} subMessage={"You have submitted your score!"}/>}
+            {openModal && <SubmitModal submitted={submitted} setSubmitted={setSubmitted} currentLevel={+id} goToNextLevel={goToNextLevel} triggerSubmitToast={() => props.triggerSubmitToast()} username={props.username} score={time} closeModal={() => closeModal() }/>}
             <Details time={time} currentLevelData={currentLevelData}/>
             <div id="game-window-main">
             <img 
