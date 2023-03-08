@@ -9,17 +9,11 @@ import { useEffect, useState } from 'react';
 import { Leaderboard } from './components/Leaderboard';
 import { auth, googleProvider } from "./config/firebase"
 import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth"
+import clientData from './clientData';
 
 function App() {
 
-  const initialClientLevelsData = [
-    {id: 1, url: "level_1.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}} }, 
-    {id: 2, url: "level_2.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}, wilma: {found: false, url: `../wilma.png`}} },
-    {id: 3, url: "level_3.jpg", characters: { wally: {found: false, url: `../wally.png` }} },
-    {id: 4, url: "level_4.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}, wilma: {found: false, url: `../wilma.png`}} },
-    {id: 5, url: "level_5.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}} },
-    {id: 6, url: "level_6.jpg", characters: { wally: {found: false, url: `../wally.png` }, odlaw: {found: false, url: `../odlaw.png`}, wizard: {found: false, url: `../wizard.png`}} }
-  ]
+  const initialClientLevelsData = clientData
 
   const [user, setUser] = useState(null)
   const [username, setUsername] = useState("")
