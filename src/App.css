@@ -484,13 +484,17 @@ body {
 
 @media (max-width: 1000px) {
   .nav {
-    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     height: fit-content;
     padding-left: 0;
     padding-right: 0;
     width: 100%;
     padding: 0;
-    gap: 0;
+    position: relative;
+    top: 0;
   }
   .auth {
     margin-left: 0;
@@ -514,6 +518,11 @@ body {
   }
   .characters-container {
     flex-direction: row;
+    gap: 20px;
+  }
+  .character-container {
+    display: flex;
+    flex-direction: column;
   }
   .home--level-character {
     width: 2rem;
