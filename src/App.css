@@ -150,7 +150,8 @@ body {
 }
 
 .home--level-title {
-  padding: 1rem;
+  padding: 1.5rem;
+  margin-right: auto;
 }
 
 .home--level-preview--image {
@@ -158,6 +159,19 @@ body {
   height: 22rem;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.home--level-characters {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.home--level-character {
+  width: 3rem;
 }
 
 .characters {
@@ -473,7 +487,7 @@ body {
     margin: 0;
   }
   .home--level--container {
-    width: 80%;
+    width: 90%;
     height: 30%;
   }
   .home--level-preview--image {
@@ -488,6 +502,9 @@ body {
   }
   .characters-container {
     flex-direction: row;
+  }
+  .home--level-character {
+    width: 2rem;
   }
 }
 
