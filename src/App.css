@@ -460,7 +460,7 @@ body {
   50%  {transform: scale(1.2);}
 }
 
-@media (max-width: 1000px), (max-height: 700px) {
+@media (max-width: 1000px) {
   .nav {
     flex-direction: column-reverse;
     height: fit-content;
@@ -487,6 +487,12 @@ body {
     width: 100%;
   }
   .characters-container {
+    flex-direction: row;
+  }
+}
+
+@media (max-height: 500px) {
+  .nav {
     flex-direction: row;
   }
 }
