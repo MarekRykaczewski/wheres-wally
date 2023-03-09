@@ -44,10 +44,8 @@ export const GameWindow = (props) => {
 
     const handleContextMenu = (event) => {
         event.preventDefault()
-        console.log("clicked")
         const imageX = Math.round(
             (event.nativeEvent.offsetX / event.nativeEvent.target.offsetWidth) * 100)
-        console.log(imageX)
             const imageY = Math.round(
             (event.nativeEvent.offsetY / event.nativeEvent.target.offsetHeight) * 100)
         const { pageX, pageY } = event
@@ -81,7 +79,6 @@ export const GameWindow = (props) => {
                     setRunning(false)
                     setOpenModal(true)
                 }
-                console.log("you won")
             }
         }
     }

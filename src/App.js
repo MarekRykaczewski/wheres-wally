@@ -116,19 +116,12 @@ function App() {
     const clientCoordinates = {x: clientX, y: clientY}
     const { x, y } = serverLevelsData[+id - 1].characters[character].coordinates
     const serverCoordinates = {x, y}
-    console.log("client click")
-    console.log(clientCoordinates)
-    console.log("server loc")
-    console.log(serverCoordinates)
     if (isNear(clientCoordinates.x, serverCoordinates.x) && isNear(clientCoordinates.y, serverCoordinates.y)) {
         const itemToUpdate = clientLevelsData.findIndex(x => x.id == id)
         const oldData = [...clientLevelsData]
         const newData = oldData[itemToUpdate].characters[character].found = true
         setClientLevelsData(oldData, newData)
-        console.log(clientLevelsData)
-    } else {
-        console.log("miss")
-    }
+    } 
 }
 
 const isNear = (a, b) => {
