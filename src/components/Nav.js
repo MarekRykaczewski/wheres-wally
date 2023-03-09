@@ -7,7 +7,7 @@ export const Nav = (props) => {
             <h1> Where's Wally </h1>
             </Link>
             <Link id="home-navigation-link" to={"/leaderboard"}>
-            <div id="home-navigation">
+            <div className="nav--leaderboard-button">
                 Leaderboard
             </div>
             </Link>
